@@ -1,0 +1,47 @@
+<div>
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<span class="navbar-brand">Universe</span>
+			</div>
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="" ng-click="uc.addGalaxy()">Add Galaxy</a></li>
+			</ul>
+		</div>
+	</nav>
+
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Galaxy</th>
+				<th>Star Count</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="galaxy in uc.galaxies track by $index">
+				<td><button type="button" class="btn btn-link" ng-click="uc.showGalaxy(galaxy.id)">{{ galaxy.name }}</button></td>
+				<td>{{ galaxy.stars.length }}</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+<script type="text/ng-template" id="addGalaxyModal.html">
+	<div class="modal-header">
+		<h3 class="modal-title" id="modal-title">Add Galaxy</h3>
+	</div>
+	<div class="modal-body" id="modal-body">
+		<form class="form-horizontal">
+			<div class="form-group">
+				<label class="col-sm-2 control-label">Name</label>
+				<div class="col-sm-10">
+				<input type="text" class="form-control" placeholder="Name" ng-model="umc.name">
+				</div>
+			</div>
+		</form>
+	</div>
+	<div class="modal-footer">
+		<button class="btn btn-primary" type="button" ng-click="umc.ok()">OK</button>
+		<button class="btn btn-warning" type="button" ng-click="umc.cancel()">Cancel</button>
+	</div>
+</script>
